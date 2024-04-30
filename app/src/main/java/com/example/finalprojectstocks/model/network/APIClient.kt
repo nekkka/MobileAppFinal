@@ -11,7 +11,7 @@ object APIClient {
             val request = chain.request()
 
             val newRequest = request.newBuilder()
-                .addHeader("X-API-KEY", "7RBTSE/f5E8EBQqb9nDf7A==Vy1UW9ycFb6uXgGv")
+                .addHeader("X-API-KEY", "IQhgB1xircwnSIg6p2lVKQ==k3DIFrjL15mkXojU")
                 .build()
 
             chain.proceed(newRequest)

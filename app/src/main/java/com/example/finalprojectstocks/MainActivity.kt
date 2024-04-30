@@ -50,14 +50,18 @@ class MainActivity : AppCompatActivity() {
         val client = APIClient.instance
         val response = client.fetchKotikList(name)
 
-        response.enqueue(object : Callback<List<Stocks>> {
-            override fun onResponse(call: Call<List<Stocks>>, response: Response<List<Stocks>>) {
+        response.enqueue(object : Callback<Stocks> {
+            override fun onResponse(call: Call<Stocks>, response: Response<Stocks>) {
                 println("HttpResponse: ${response.body()}")
-                val cats = response.body() ?: emptyList()
+                val cat: Stocks? = response.body()
+                val cats: MutableList<Stocks> = mutableListOf()
+                cat?.let {
+                    cats.add(it)
+                }
                 adapter.submitList(cats)
             }
 
-            override fun onFailure(call: Call<List<Stocks>>, t: Throwable) {
+            override fun onFailure(call: Call<Stocks>, t: Throwable) {
                 println("HttpResponse: ${t.message}")
                 adapter.submitList(emptyList())
             }

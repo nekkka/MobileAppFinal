@@ -8,5 +8,5 @@ import retrofit2.http.Query
 
 interface StockService {
     @GET("stockprice")
-    fun fetchKotikList(@Query("ticker")ticker: String): Call<Stocks>
+    fun fetchStocksList(@Query("ticker")ticker: String): Call<Stocks>
 }

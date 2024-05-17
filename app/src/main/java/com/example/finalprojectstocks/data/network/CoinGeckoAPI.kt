@@ -1,8 +1,8 @@
-package com.example.mobileappfinal.data.network
+package com.example.finalprojectstocks.data.network
 
-import com.example.mobileappfinal.data.network.dto.coinDetail.CoinDetailResponse
-import com.example.mobileappfinal.data.network.dto.coinDetail.CoinMarketPriceHistoryResponse
-import com.example.mobileappfinal.data.network.dto.coinList.TrendingResponse
+import com.example.finalprojectstocks.data.network.dto.coinDetail.CoinDetailResponse
+import com.example.finalprojectstocks.data.network.dto.coinDetail.CoinMarketPriceHistoryResponse
+import com.example.finalprojectstocks.data.network.dto.coinList.TrendingResponse
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query

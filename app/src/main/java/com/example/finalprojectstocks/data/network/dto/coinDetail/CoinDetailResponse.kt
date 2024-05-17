@@ -1,4 +1,4 @@
-package com.example.mobileappfinal.data.network.dto.coinDetail
+package com.example.finalprojectstocks.data.network.dto.coinDetail
 
 
 data class CoinImage(

@@ -1,9 +1,9 @@
-package com.example.mobileappfinal.di
+package com.example.finalprojectstocks.di
 
 import android.util.Log
-import com.example.mobileappfinal.BuildConfig
-import com.example.mobileappfinal.common.Constants
-import com.example.mobileappfinal.data.network.CoinGeckoAPI
+import com.example.finalprojectstocks.BuildConfig
+import com.example.finalprojectstocks.common.Constants
+import com.example.finalprojectstocks.data.network.CoinGeckoAPI
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

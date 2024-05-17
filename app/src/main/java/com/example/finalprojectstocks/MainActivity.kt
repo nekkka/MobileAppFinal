@@ -1,71 +1,49 @@
 package com.example.finalprojectstocks
 
 import android.os.Bundle
-import com.google.android.material.bottomnavigation.BottomNavigationView
+import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.SearchView
-import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.navigation.ui.setupWithNavController
-import com.example.finalprojectstocks.adapters.StocksAdapter
+import androidx.navigation.fragment.NavHostFragment
 import com.example.finalprojectstocks.databinding.ActivityMainBinding
-import com.example.finalprojectstocks.model.entity.Stocks
-import com.example.finalprojectstocks.model.network.APIClient
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+import dagger.hilt.android.AndroidEntryPoint
 
+
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityMainBinding
-    private val adapter: StocksAdapter by lazy {
-        StocksAdapter()
-    }
+    private var _binding: ActivityMainBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-        binding.stockList.adapter = adapter
-
-        binding.searchView.clearFocus()
-        binding.searchView.setOnQueryTextListener(object: SearchView.OnQueryTextListener {
-            override fun onQueryTextChange(newText: String): Boolean {
-                return true
-            }
-
-            override fun onQueryTextSubmit(query: String): Boolean {
-                binding.searchView.clearFocus()
-                fetchStocks(query)
-                return false
-            }
-        })
-
-
+        enableEdgeToEdge()
+        setupBinding()
+        setupNavigation()
     }
 
-    private fun fetchStocks(name: String) {
-        val client = APIClient.instance
-        val response = client.fetchStocksList(name)
+    private fun setupBinding() {
+        _binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+    }
 
-        response.enqueue(object : Callback<Stocks> {
-            override fun onResponse(call: Call<Stocks>, response: Response<Stocks>) {
-                println("HttpResponse: ${response.body()}")
-                val cat: Stocks? = response.body()
-                val cats: MutableList<Stocks> = mutableListOf()
-                cat?.let {
-                    cats.add(it)
+    private fun setupNavigation() {
+        val navHostFragment = supportFragmentManager
+            .findFragmentById(R.id.nav_host_fragment) as? NavHostFragment
+        navHostFragment?.navController?.let { navController ->
+            binding.bottomNavigationView.setOnItemSelectedListener { menuItem ->
+                when (menuItem.itemId) {
+                    R.id.trending -> {
+                        navController.navigate(R.id.coinListFragment)
+                        true
+                    }
+                    R.id.settings -> {
+                        navController.navigate(R.id.settingsFragment)
+                        true
+                    }
+                    else -> false
                 }
-                adapter.submitList(cats)
             }
-
-            override fun onFailure(call: Call<Stocks>, t: Throwable) {
-                println("HttpResponse: ${t.message}")
-                adapter.submitList(emptyList())
-            }
-        })
+        } ?: throw IllegalStateException("Navigation Host not found")
     }
 
 }

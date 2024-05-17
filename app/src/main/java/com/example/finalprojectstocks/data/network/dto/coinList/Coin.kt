@@ -1,6 +1,6 @@
-package com.example.mobileappfinal.data.network.dto.coinList
+package com.example.finalprojectstocks.data.network.dto.coinList
 
-import com.example.mobileappfinal.domain.models.Coin
+import com.example.finalprojectstocks.domain.models.Coin
 
 
 data class CoinResponse(

@@ -1,10 +1,10 @@
-package com.example.mobileappfinal.data.repository
+package com.example.finalprojectstocks.data.repository
 
-import com.example.mobileappfinal.data.network.CoinGeckoAPI
-import com.example.mobileappfinal.data.network.dto.coinDetail.CoinDetailResponse
-import com.example.mobileappfinal.data.network.dto.coinDetail.CoinMarketPriceHistoryResponse
-import com.example.mobileappfinal.data.network.dto.coinList.CoinDTO
-import com.example.mobileappfinal.domain.repository.CoinRepository
+import com.example.finalprojectstocks.data.network.CoinGeckoAPI
+import com.example.finalprojectstocks.data.network.dto.coinDetail.CoinDetailResponse
+import com.example.finalprojectstocks.data.network.dto.coinDetail.CoinMarketPriceHistoryResponse
+import com.example.finalprojectstocks.data.network.dto.coinList.CoinDTO
+import com.example.finalprojectstocks.domain.repository.CoinRepository
 import javax.inject.Inject
 
 class CoinRepositoryImpl @Inject constructor(

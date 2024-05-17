@@ -1,9 +1,9 @@
-package com.example.mobileappfinal.di
+package com.example.finalprojectstocks.di
 
-import com.example.mobileappfinal.data.datastore.SharedPreferenceServiceImpl
-import com.example.mobileappfinal.data.repository.CoinRepositoryImpl
-import com.example.mobileappfinal.domain.repository.CoinRepository
-import com.example.mobileappfinal.domain.datastore.SharedPreferenceService
+import com.example.finalprojectstocks.domain.datastore.SharedPreferenceService
+import com.example.finalprojectstocks.domain.repository.CoinRepository
+import com.example.finalprojectstocks.data.datastore.SharedPreferenceServiceImpl
+import com.example.finalprojectstocks.data.repository.CoinRepositoryImpl
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn

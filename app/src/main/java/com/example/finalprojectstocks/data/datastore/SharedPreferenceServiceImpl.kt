@@ -1,8 +1,8 @@
-package com.example.mobileappfinal.data.datastore
+package com.example.finalprojectstocks.data.datastore
 
 import android.content.Context
 import android.content.SharedPreferences
-import com.example.mobileappfinal.domain.datastore.SharedPreferenceService
+import com.example.finalprojectstocks.domain.datastore.SharedPreferenceService
 import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
 

@@ -20,5 +20,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "MobileAppFinal"
+rootProject.name = "FinalProjectStocks"
 include(":app")

@@ -1,5 +1,7 @@
 package com.example.finalprojectstocks.domain.models
 
+import kotlinx.datetime.LocalDate
+
 
 data  class CoinDetails(
     val id: String,
@@ -8,6 +10,6 @@ data  class CoinDetails(
     val thumb: String,
     val description: String,
     val links: List<String>,
- //   val creationDate: LocalDate?,
+    val creationDate: LocalDate?,
     val marketHistory: List<Double>
 )
